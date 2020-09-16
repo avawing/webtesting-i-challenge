@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
       //id
       tbl.increment()
 
-      tbl.string('name')
+      tbl.string('name').unique()
       tbl.integer('durability')
       tbl.integer('enhancement')
   })
