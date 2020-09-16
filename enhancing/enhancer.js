@@ -6,7 +6,7 @@ function repair(item) {
 
 function success(item) {
   if (item.enhancement >= 20) {
-    return item;
+    return {...item, enhancement: 20};
   } else {
     return { ...item, enhancement: (item.enhancement += 1) };
   }
@@ -27,12 +27,11 @@ function fail(item) {
     }
     return { ...item, durability: (item.durability -= 10) };
   }
-  return { ...item };
 }
 
 function get(item) {
   if(item.enhancement > 0){
-    return{...item, name: `+ ${item.enhancement} ${item.name}`}
+    return{...item, name: `${item.name} +${item.enhancement} `}
   }
   return { ...item };
 }
